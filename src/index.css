@@ -3,8 +3,8 @@
 }
 
 :root {
-  --color-bg: #2C2C32;
-  --color-active: #0f7dc6;
+  --color-bg: #a29bfe;
+  --color-active: #3b3b3b;
 }
 
 body {
@@ -14,25 +14,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #3b3b3b;
+  color: white;
 }
 
 header {
   background-color: var(--color-bg);
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   text-align: center;
+  margin-bottom: 50px;
 }
-header > a {
+header > a, a {
   color: white;
   text-decoration: none;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  font-weight: 600;
+  font-size: 24px;
 }
-header > a:hover {
+header > a:hover, a {
   text-decoration: underline;
 }
 
 h1 {
   text-align: center;
   margin-top: 0;
+  font-size: 48px;
 }
 
 .container {
@@ -56,7 +62,11 @@ main a:hover {
   text-decoration: underline;
 }
 
-.active {
+.active-link {
   color: var(--color-active);
   cursor: default;
+}
+
+button {
+  cursor: pointer;
 }

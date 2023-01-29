@@ -1,34 +1,35 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
 
-const Singlepage = () => {
-    const {id} = useParams();
-    const navigate = useNavigate();
-    const [post, setPost] = useState(null);
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 
-    const goBack = () => navigate(-1);
-    const goHome = () => navigate('/', {replace: true});
+const SinglePage = () => {
+    let [data, setData] = useState(null)
+    let { userId } = useParams()
+    let { pathname } = useLocation()
+
+    let navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            .then(res => res.json())
-            .then(data => setPost(data))
-    }, [id]);
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+        .then(response => response.json())
+        .then(setData)
+    }, [userId])
 
     return (
-        <div>
-            <button onClick={goBack}>Go back</button>
-            {/* Bad approach */}
-            <button onClick={goHome}>Go home</button>
-            {post && (
+        <div style={{width: "max-content", margin: "0 auto"}}>
+            <h1>User info</h1>
+            { data && (
                 <>
-                    <h1>{post.title}</h1>
-                    <p>{post.body}</p>
-                    <Link to={`/posts/${id}/edit`}>Edit this post</Link>
+                    <p><strong>Name:</strong> {data.name}</p>
+                    <p><strong>Username:</strong> {data.username}</p>
+                    <p><strong>Email:</strong> {data.email}</p>
+                    <p><strong>Website:</strong> {data.website}</p>
+                    <button onClick={() => navigate( "contact" , { state: pathname, replace: false })}>Go back</button>
                 </>
             )}
+            
         </div>
     )
 }
 
-export {Singlepage}
+export {SinglePage}

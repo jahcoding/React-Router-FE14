@@ -1,13 +1,11 @@
-import { useParams } from 'react-router-dom'
 
-const Editpost = () => {
-    const {id} = useParams();
+const EditPost = () => {
 
     return (
         <div>
-            <h1>Edit post {id}</h1>
+            <h1>Edit post</h1>
         </div>
     )
 }
 
-export {Editpost}
+export {EditPost}

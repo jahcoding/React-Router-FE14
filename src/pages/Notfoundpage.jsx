@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom'
-
-const Notfoundpage = () => {
+const NotFoundPage = () => {
     return (
         <div>
-            This page doesn't exist. Go <Link to="/">home</Link>
+           <h1>Not found 404. Go <a href="/">home</a></h1>
         </div>
     )
 }
 
-export {Notfoundpage};
+export { NotFoundPage };
